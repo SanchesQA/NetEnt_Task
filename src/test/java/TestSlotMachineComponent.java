@@ -1,4 +1,6 @@
 
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import listeners.TestNGListeners;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
@@ -62,6 +64,13 @@ public class TestSlotMachineComponent extends BaseTest{
         check.assertTrue(slotMachine.prizeIsHighlighted());
         check.assertTrue(slotMachine.compareWinValues());
         check.assertAll();
+    }
+
+    @Test
+    public void testSuccessStatusCopeOnSpin(){
+       Response response = RestAssured.post("http://slotmachinescript.com/slots/spin.php");
+       int responseCode =response.statusCode();
+       Assert.assertEquals(responseCode, 200);
     }
 
 
