@@ -66,6 +66,8 @@ public class TestSlotMachineComponent extends BaseTest{
         check.assertAll();
     }
 
+
+
     @Test
     public void testSuccessStatusCopeOnSpin(){
        Response response = RestAssured.post("http://slotmachinescript.com/slots/spin.php");

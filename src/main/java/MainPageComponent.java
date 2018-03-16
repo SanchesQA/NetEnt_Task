@@ -1,7 +1,8 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+
+import java.util.concurrent.TimeUnit;
 
 public class MainPageComponent  extends BaseComponent{
 
@@ -23,6 +24,18 @@ public class MainPageComponent  extends BaseComponent{
         driver.get(URL);
         return this;
     }
+
+    @FindBy(xpath = "//a[@data-example='2']")
+    WebElement exampleSkin;
+
+
+
+    public SlotMachineComponent clickExampleSkin(){
+        exampleSkin.click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return new SlotMachineComponent(driver);
+    }
+
     public MainPageComponent clickOverviewNav(){
         overviewNav.click();
         return this;

@@ -37,16 +37,21 @@ public class SlotMachineComponent  extends BaseComponent{
     @FindBy (id="credits")
     private WebElement credits;
 
+    @FindBy (xpath = "//div[@id='slotsSelectorWrapper'][@class='reelSet3 slotMachine4']")
+    private WebElement skinBackg;
+
 
     public SlotMachineComponent(WebDriver driver) {
         super(driver);
-
-
     }
 
     public SlotMachineComponent open() {
         driver.get(URL);
         return this;
+    }
+
+    public boolean skinBackgChanged(){
+        return (driver.findElement(By.xpath("//div[@id='slotsSelectorWrapper'][@class='reelSet2 slotMachine2']")).isDisplayed());
     }
 
     public boolean checkThatSpinButtonIsDisabled(){

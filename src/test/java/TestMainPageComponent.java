@@ -12,4 +12,11 @@ public class TestMainPageComponent extends BaseTest{
         Assert.assertTrue(main.allNavMenuIsDisplayed());
 
     }
+
+    @Test
+    public void testSkinChange() throws Exception{
+        MainPageComponent main = new MainPageComponent(driver);
+        SlotMachineComponent slot = main.open().clickExampleSkin();
+        Assert.assertTrue(slot.skinBackgChanged(), "BackGround is not changed correctly");
+    }
 }
